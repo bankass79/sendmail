@@ -30,7 +30,7 @@ public class Email implements Serializable {
 
 	@Lob
 	@Type(type = "org.hibernate.type.BlobType")
-	private String corps;
+	private Blob corps;
 
 	private String idregion;
 
@@ -38,7 +38,7 @@ public class Email implements Serializable {
 		super();
 	}
 
-	public Email(long id, String idRegion, String corps) {
+	public Email(long id, String idRegion, Blob corps) {
 		super();
 		this.id = id;
 		this.idregion = idRegion;
@@ -61,12 +61,17 @@ public class Email implements Serializable {
 		this.idregion = idRegion;
 	}
 
-	public String getCorps() {
+	public Blob getCorps() {
 		return corps;
 	}
 
-	public void setCorps(String corps) {
-		this.corps = corps;
+	public void setCorps(Blob blob) {
+		this.corps = blob;
+	}
+
+	public void setObjet(String string) {
+		this.objet=string;
+		
 	}
 
 }
